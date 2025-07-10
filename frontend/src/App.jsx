@@ -20,43 +20,43 @@ import { AuthProvider } from "./context/AuthContext"
 import { Contact } from "./components/ui"
 
 function App() {
-  const AuthCallback = () => {
-    return <div>Processing authentication...</div>;
-  };
+    const AuthCallback = () => {
+      return <div>Processing authentication...</div>;
+    };
 
-  return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <Router>
-        <AuthProvider>
-          <ShowNavbar>
-            <Navbar />
-          </ShowNavbar>
-          <Toaster richColors />
-          <Routes>
-            {/* Public routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/auth/callback" element={<AuthCallback />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            
-            {/* Protected routes */}
-            <Route element={<ProtectedRoute />}>
+    return (
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <Router>
+          <AuthProvider>
+            <ShowNavbar>
+              <Navbar />
+            </ShowNavbar>
+            <Toaster richColors />
+            <Routes>
+              {/* Public routes */}
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/auth/callback" element={<AuthCallback />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               
-              <Route path="/part/:id" element={<Details type="part" />} />
-              <Route path="/order/:id" element={<Details type="order" />} />
-              <Route path="/logs" element={<Logging />} />
-              <Route path="/inventory" element={<Inventory />} />
-              <Route path="/sad" element={<Order />} />
-              <Route path="/adar" element={<OrdersPage />} />
-            <Route path="/contact" element={<Contact />} />
-            </Route>
-          </Routes>
-        </AuthProvider>
-      </Router>
-    </ThemeProvider>
-  )
+              {/* Protected routes */}
+              <Route element={<ProtectedRoute />}>
+                
+                <Route path="/part/:id" element={<Details type="part" />} />
+                <Route path="/order/:id" element={<Details type="order" />} />
+                <Route path="/logs" element={<Logging />} />
+                <Route path="/inventory" element={<Inventory />} />
+                <Route path="/sad" element={<Order />} />
+                <Route path="/adar" element={<OrdersPage />} />
+              <Route path="/contact" element={<Contact />} />
+              </Route>
+            </Routes>
+          </AuthProvider>
+        </Router>
+      </ThemeProvider>
+    )
 }
 
 export default App
